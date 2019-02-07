@@ -1,0 +1,24 @@
+{
+  "name": "trello-chronos",
+  "version": "0.1.0",
+  "description": "Track the estimated and spent time for any Trello card",
+  "scripts": {
+    "start": "node ./server/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elbracht/trello-chronos.git"
+  },
+  "author": "Alexander Elbracht <alexander@elbracht.org>",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.16.4"
+  },
+  "devDependencies": {
+    "eslint": "^5.9.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^6.1.2"
+  }
+}
