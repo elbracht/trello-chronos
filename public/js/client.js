@@ -9,7 +9,7 @@ TrelloPowerUp.initialize({
   }],
   'card-badges': t => t.get('card', 'shared', 'estimate')
     .then(estimate => [{
-      text: `Estimated: ${estimate}`,
+      text: estimate ? `Estimate: ${estimate}` : 'No Estimate',
       color: 'light-gray',
     }]),
 });
