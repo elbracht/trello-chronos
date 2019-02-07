@@ -7,13 +7,9 @@ window.estimate.addEventListener('submit', (event) => {
   const regex = /^(?:^|\s*)(\d+[w|W])?(?:^|\s*)(\d+[d|D])?(?:^|\s*)(\d+[h|H])?(?:^|\s*)$/;
   const estimateValues = window.estimateTime.value.match(regex);
 
-  // Get error message for wrong input
+  // Get an error message for wrong input
   if (estimateValues == null) {
-    t.alert({
-      message: 'The estimated time could not be saved because the input was in an invalid format.',
-      duration: 6,
-      display: 'error',
-    });
+    // TODO: Implement error message for input field
     return;
   }
 
