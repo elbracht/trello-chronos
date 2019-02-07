@@ -9,8 +9,7 @@ TrelloPowerUp.initialize({
   }],
   'card-badges': t => t.get('card', 'shared', 'estimate')
     .then(estimate => [{
-      icon: './images/estimateTime.png',
-      text: `Estimated Time: ${estimate}`,
+      text: `Estimated: ${estimate}`,
       color: 'light-gray',
     }]),
 });
