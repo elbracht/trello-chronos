@@ -2,11 +2,13 @@
 <html>
   <head>
     <link rel="stylesheet" href="https://p.trellocdn.com/power-up.min.css">
-    <link rel="stylesheet" href="./css/estimate.css">
+    <link rel="stylesheet" href="./css/main.css">
   </head>
   <body>
     <form id="estimate">
-      <input type="text" id="estimateTime" placeholder="Estimate Time (e.g. 1w 2d 4h)" autofocus />
+      <label for="estimateTime">Estimate Time</label>
+      <input id="estimateTime" class="error" type="text" placeholder="e.g. 1w 2d 4h" autofocus />
+      <hr />
       <button type="submit" class="mod-primary">Save</button>
     </form>
 
