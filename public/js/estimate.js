@@ -28,7 +28,7 @@ window.estimate.addEventListener('submit', (event) => {
 
 t.render(() => t.get('card', 'shared', 'estimateTime')
   .then((estimate) => {
-    window.estimateTime.value = estimate;
+    window.estimateTime.value = estimate || '';
   })
   .then(() => {
     t.sizeTo('#estimate').done();
