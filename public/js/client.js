@@ -3,7 +3,7 @@ TrelloPowerUp.initialize({
     icon: './images/estimateTime.png',
     text: 'Estimate Time',
     callback: t => t.popup({
-      title: 'Estimate',
+      title: 'Estimate Time',
       url: 'estimate.html',
     }),
   }],
