@@ -33,6 +33,8 @@ window.estimate.addEventListener('submit', (event) => {
     return;
   }
 
+  // TODO: Settings for parsing estimate time (true or false)
+  // TODO: Settings for working hours and days
   const estimateTime = parseEstimate(estimateValues, 8, 5);
 
   return t.set('card', 'shared', 'estimateTime', estimateTime)
