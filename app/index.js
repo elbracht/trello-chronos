@@ -4,7 +4,7 @@ TrelloPowerUp.initialize({
     text: 'Estimate Time',
     callback: t => t.popup({
       title: 'Estimate Time',
-      url: 'estimate.html',
+      url: './components/estimate/estimate.html',
     }),
   }],
   'card-badges': t => t.get('card', 'shared', 'estimateTime')

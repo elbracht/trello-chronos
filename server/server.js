@@ -8,11 +8,11 @@ const app = express();
 app.use(cors({ origin: '*' }));
 
 // http://expressjs.com/en/starter/static-files.html
-app.use(express.static('public'));
+app.use(express.static('app'));
 
 // http://expressjs.com/en/starter/basic-routing.html
 app.get('*', (request, response) => {
-  response.sendFile(path.join(__dirname, '../public', 'index.html'));
+  response.sendFile(path.join(__dirname, '../app', 'index.html'));
 });
 
 // listen for requests
