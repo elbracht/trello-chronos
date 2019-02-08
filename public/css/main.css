@@ -1,3 +1,9 @@
+/* Button */
+button {
+  margin: 0;
+}
+
+/* Input */
 textarea, input[type="text"], input[type="email"], input[type="password"], input[type="number"] {
   -webkit-appearance: none;
   background-color: #fafcfc;
@@ -29,7 +35,7 @@ textarea:not([disabled]):focus, input[type="text"]:not([disabled]):focus, input[
   outline: 0;
 }
 
-/* Error */
+/* Input Error */
 textarea.is-error, input[type="text"].is-error, input[type="email"].is-error, input[type="password"].is-error, input[type="number"].is-error {
   background-color: #fbedeb;
   border: none;
@@ -49,6 +55,7 @@ textarea.is-error:focus, input[type="text"].is-error:focus, input[type="email"].
   outline: 0;
 }
 
+/* Input Error Message */
 .error-message {
   color: #eb5a46;
   font-size: 90%;
@@ -61,6 +68,6 @@ textarea.is-error:focus, input[type="text"].is-error:focus, input[type="email"].
 }
 
 .error-message.is-error {
-  max-height: 18px;
+  max-height: 64px;
   opacity: 1;
 }
