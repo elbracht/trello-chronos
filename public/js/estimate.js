@@ -50,5 +50,5 @@ t.render(() => t.get('card', 'shared', 'estimateTime')
     window.estimateTime.value = estimate || '';
   })
   .then(() => {
-    t.sizeTo(168).done();
+    t.sizeTo('#estimate');
   }));
