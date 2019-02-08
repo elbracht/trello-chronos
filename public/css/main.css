@@ -23,8 +23,28 @@ textarea:not([disabled]):hover, input[type="text"]:not([disabled]):hover, input[
 }
 
 textarea:not([disabled]):focus, input[type="text"]:not([disabled]):focus, input[type="email"]:not([disabled]):focus, input[type="password"]:not([disabled]):focus, input[type="number"]:not([disabled]):focus {
-  background: #fff;
+  background-color: #fff;
   border: none;
   box-shadow: inset 0 0 0 2px #0079bf;
+  outline: 0;
+}
+
+/* Error */
+textarea.is-error, input[type="text"].is-error, input[type="email"].is-error, input[type="password"].is-error, input[type="number"].is-error {
+  background-color: #fbedeb;
+  border: none;
+  box-shadow: inset 0 0 0 2px #EFB3AB;
+}
+
+textarea.is-error:hover, input[type="text"].is-error:hover, input[type="email"].is-error:hover, input[type="password"].is-error:hover, input[type="number"].is-error:hover {
+  background-color: #F5D3CE;
+  border: none;
+  box-shadow: inset 0 0 0 2px #EFB3AB;
+}
+
+textarea.is-error:focus, input[type="text"].is-error:focus, input[type="email"].is-error:focus, input[type="password"].is-error:focus, input[type="number"].is-error:focus {
+  background-color: #fff;
+  border: none;
+  box-shadow: inset 0 0 0 2px #eb5a46;
   outline: 0;
 }
