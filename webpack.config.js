@@ -1,10 +1,10 @@
 const path = require('path');
-const glob = require("glob");
+const entry = require('webpack-glob-entry');
 
 module.exports = {
-  entry: glob.sync(path.resolve(__dirname, 'app', '*.js')),
+  entry: entry(path.resolve(__dirname, 'app', '*.js')),
   output: {
-    filename: 'bundle.js',
+    filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'public')
   },
   module: {
