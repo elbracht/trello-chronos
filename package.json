@@ -22,6 +22,9 @@
     "eslint": "^5.13.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.16.0",
+    "stylelint": "^9.10.1",
+    "stylelint-config-standard": "^18.2.0",
+    "stylelint-order": "^2.0.0",
     "webpack": "^4.29.3",
     "webpack-cli": "^3.2.3",
     "webpack-glob-entry": "^2.1.1"
