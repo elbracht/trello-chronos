@@ -4,7 +4,9 @@
   "description": "Track the estimated and spent time for any Trello card",
   "scripts": {
     "start": "npm run build && node ./server/server.js",
-    "build": "webpack --mode development"
+    "build": "webpack --mode development",
+    "lint:js": "eslint './app' './server'",
+    "lint:css": "stylelint './public/stylesheets'"
   },
   "repository": {
     "type": "git",
