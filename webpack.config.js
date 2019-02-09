@@ -2,10 +2,10 @@ const path = require('path');
 const entry = require('webpack-glob-entry');
 
 module.exports = {
-  entry: entry(path.resolve(__dirname, 'app', '*.js')),
+  entry: entry(path.resolve(__dirname, 'app', 'components', '*.js')),
   output: {
     filename: '[name].bundle.js',
-    path: path.resolve(__dirname, 'public')
+    path: path.resolve(__dirname, 'public', 'scripts')
   },
   module: {
     rules: [{
