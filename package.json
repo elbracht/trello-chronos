@@ -6,7 +6,7 @@
     "start": "npm run build && node ./server/server.js",
     "build": "webpack --mode development",
     "test": "mocha './test' --recursive",
-    "lint:js": "eslint './app' './server'",
+    "lint:js": "eslint './app' './server' './test'",
     "lint:css": "stylelint './public/stylesheets'"
   },
   "repository": {
