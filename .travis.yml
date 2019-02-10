@@ -4,3 +4,4 @@ cache: npm
 script:
   - npm run lint:js
   - npm run lint:css
+  - npm test
