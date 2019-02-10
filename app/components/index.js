@@ -16,10 +16,13 @@ TrelloPowerUp.initialize({
       url: 'log.html',
     }),
   }],
-  'card-badges': t => t.get('card', 'shared', 'estimateTime')
-    .then(estimate => [{
-      // TODO: Settings for working hours and days
-      text: estimate ? `Estimate: ${hoursToTime(estimate, 5, 8)}` : 'No Estimate',
-      color: 'light-gray',
-    }]),
+  'card-badges': t => t.getAll()
+    .then((data) => {
+      const { estimateTime } = data.card.shared;
+      const estimateBadge = {
+        text: estimateTime ? `Estimate: ${hoursToTime(estimateTime, 5, 8)}` : 'No Estimate',
+        color: 'light-gray',
+      };
+      return [estimateBadge];
+    }),
 });
