@@ -32,7 +32,7 @@ window.estimate.addEventListener('submit', (event) => {
     window.estimateTime.classList.add('is-error');
     window.estimateTimeError.innerHTML = 'The input has the wrong format. Try something like \'3d 6h\'.';
     window.estimateTimeError.classList.add('is-error');
-    return;
+    return false;
   }
 
   // TODO: Settings for parsing estimate time (true or false)

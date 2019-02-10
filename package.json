@@ -3,7 +3,11 @@
   "version": "0.1.0",
   "description": "Track the estimated and spent time for any Trello card",
   "scripts": {
-    "start": "node ./server/server.js"
+    "start": "npm run build && node ./server/server.js",
+    "build": "webpack --mode development",
+    "test": "mocha './test' --recursive",
+    "lint:js": "eslint './app' './server' './test'",
+    "lint:css": "stylelint './public/stylesheets'"
   },
   "repository": {
     "type": "git",
@@ -16,9 +20,18 @@
     "express": "^4.16.4"
   },
   "devDependencies": {
-    "eslint": "^5.9.0",
-    "eslint-config-airbnb": "^17.1.0",
-    "eslint-plugin-import": "^2.2.0",
-    "eslint-plugin-jsx-a11y": "^6.1.2"
+    "@babel/core": "^7.2.2",
+    "babel-loader": "^8.0.5",
+    "eslint": "^5.13.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.16.0",
+    "mocha": "^5.2.0",
+    "stylelint": "^9.10.1",
+    "stylelint-config-standard": "^18.2.0",
+    "stylelint-order": "^2.0.0",
+    "supertest": "^3.4.2",
+    "webpack": "^4.29.3",
+    "webpack-cli": "^3.2.3",
+    "webpack-glob-entry": "^2.1.1"
   }
 }

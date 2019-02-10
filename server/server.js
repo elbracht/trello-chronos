@@ -4,20 +4,21 @@ const path = require('path');
 
 const app = express();
 
-// your manifest must have appropriate CORS headers, you could also use '*'
 app.use(cors({ origin: '*' }));
+app.use(express.static('public'));
 
-// http://expressjs.com/en/starter/static-files.html
-app.use(express.static('app'));
-
-// http://expressjs.com/en/starter/basic-routing.html
-app.get('*', (request, response) => {
-  response.sendFile(path.join(__dirname, '../app', 'index.html'));
+app.get('/', (request, response) => {
+  response.sendFile(path.join(__dirname, '../public', 'index.html'));
 });
 
-// listen for requests
+app.get('/estimate', (request, response) => {
+  response.sendFile(path.join(__dirname, '../public', 'estimate.html'));
+});
+
 const port = process.env.PORT || 4000;
-app.listen(port, () => {
+const server = app.listen(port, () => {
   // eslint-disable-next-line no-console
   console.log(`Your server is listening on http://localhost:${port}/`);
 });
+
+module.exports = server;
