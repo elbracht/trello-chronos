@@ -1,3 +1,5 @@
+import { hoursToTime } from '../helper/time';
+
 TrelloPowerUp.initialize({
   'card-buttons': () => [{
     icon: './images/estimateTime.png',
@@ -9,7 +11,8 @@ TrelloPowerUp.initialize({
   }],
   'card-badges': t => t.get('card', 'shared', 'estimateTime')
     .then(estimate => [{
-      text: estimate ? `Estimate: ${estimate}` : 'No Estimate',
+      // TODO: Settings for working hours and days
+      text: estimate ? `Estimate: ${hoursToTime(estimate, 5, 8)}` : 'No Estimate',
       color: 'light-gray',
     }]),
 });
