@@ -5,7 +5,7 @@
   "scripts": {
     "start": "npm run build && node ./server/server.js",
     "build": "webpack --mode development",
-    "test": "mocha './test' --recursive",
+    "test": "mocha './test' --recursive --require @babel/register",
     "lint:js": "eslint './app' './server' './test'",
     "lint:css": "stylelint './public/stylesheets'"
   },
@@ -21,6 +21,8 @@
   },
   "devDependencies": {
     "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.3.1",
+    "@babel/register": "^7.0.0",
     "babel-loader": "^8.0.5",
     "eslint": "^5.13.0",
     "eslint-config-airbnb-base": "^13.1.0",
