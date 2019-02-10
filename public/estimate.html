@@ -14,7 +14,10 @@
       You need to enable JavaScript to run this app.
     </noscript>
     <form id="estimate">
-      <input type="text" id="estimateSize" placeholder="Estimate Size" />
+      <label for="estimateTime">Estimate the time for this card</label>
+      <input id="estimateTime" type="text" placeholder="e.g. 1w 2d 4h" autofocus />
+      <div id="estimateTimeError" class="error-message"></div>
+      <hr />
       <button type="submit" class="mod-primary">Save</button>
     </form>
     <script type="text/javascript" src="./scripts/estimate.bundle.js"></script>

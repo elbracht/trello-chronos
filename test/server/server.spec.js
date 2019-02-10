@@ -1,5 +1,5 @@
-const request = require('supertest');
-const server = require('../../server/server.js');
+import request from 'supertest';
+import server from '../../server/server';
 
 describe('Server', () => {
   afterEach(() => {
