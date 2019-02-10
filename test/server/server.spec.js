@@ -18,6 +18,12 @@ describe('Server', () => {
       .expect(200, done);
   });
 
+  it('should responds to /log', (done) => {
+    request(server)
+      .get('/log')
+      .expect(200, done);
+  });
+
   it('should send 404 for everything else', (done) => {
     request(server)
       .get('/foo/bar')

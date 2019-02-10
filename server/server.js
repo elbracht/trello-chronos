@@ -15,6 +15,10 @@ app.get('/estimate', (request, response) => {
   response.sendFile(path.join(__dirname, '../public', 'estimate.html'));
 });
 
+app.get('/log', (request, response) => {
+  response.sendFile(path.join(__dirname, '../public', 'log.html'));
+});
+
 const port = process.env.PORT || 4000;
 const server = app.listen(port, () => {
   // eslint-disable-next-line no-console

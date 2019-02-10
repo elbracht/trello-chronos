@@ -8,6 +8,13 @@ TrelloPowerUp.initialize({
       title: 'Estimate Time',
       url: 'estimate.html',
     }),
+  }, {
+    icon: './images/logTime.png',
+    text: 'Log Time',
+    callback: t => t.popup({
+      title: 'Log Time',
+      url: 'log.html',
+    }),
   }],
   'card-badges': t => t.get('card', 'shared', 'estimateTime')
     .then(estimate => [{
