@@ -2,7 +2,7 @@ import { timeToHours, hoursToTime } from '../helper/time';
 
 const t = TrelloPowerUp.iframe();
 
-window.estimate.addEventListener('submit', (event) => {
+window.log.addEventListener('submit', (event) => {
   event.preventDefault();
 
   try {
