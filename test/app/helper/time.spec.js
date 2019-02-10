@@ -14,6 +14,10 @@ describe('Time Helper', () => {
     expectedHours = 140;
     assert.strictEqual(hours, expectedHours);
 
+    hours = timeToHours('2W 6d12H', workingDays, workingHours);
+    expectedHours = 140;
+    assert.strictEqual(hours, expectedHours);
+
     hours = timeToHours('2w 12h', workingDays, workingHours);
     expectedHours = 92;
     assert.strictEqual(hours, expectedHours);
