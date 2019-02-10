@@ -8,7 +8,7 @@ window.estimate.addEventListener('submit', (event) => {
   try {
     // TODO: Settings for parsing estimate time (true or false)
     // TODO: Settings for working hours and days
-    const estimateHours = timeToHours(window.estimateTime.value, 8, 5);
+    const estimateHours = timeToHours(window.estimateTime.value, 5, 8);
     return t.set('card', 'shared', 'estimateTime', estimateHours)
       .then(() => {
         t.closePopup();
@@ -25,7 +25,7 @@ t.render(() => t.get('card', 'shared', 'estimateTime')
   .then((estimate) => {
     // TODO: Settings for parsing estimate time (true or false)
     // TODO: Settings for working hours and days
-    const estimateTime = hoursToTime(estimate, 8, 5) || '';
+    const estimateTime = hoursToTime(estimate, 5, 8) || '';
     window.estimateTime.value = estimateTime;
   })
   .then(() => {
