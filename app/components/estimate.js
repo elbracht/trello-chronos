@@ -12,10 +12,10 @@ window.estimate.addEventListener('submit', (event) => {
       .then(() => {
         t.closePopup();
       });
-  } catch (e) {
+  } catch (err) {
     window.estimateTime.classList.add('is-error');
-    window.estimateTimeError.innerHTML = 'The input has the wrong format. Try something like \'3d 6h\'.';
     window.estimateTimeError.classList.add('is-error');
+    window.estimateTimeError.innerHTML = err.message;
     return false;
   }
 });
