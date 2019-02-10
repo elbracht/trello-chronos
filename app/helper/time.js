@@ -11,10 +11,32 @@ function parseTime(time) {
   };
 }
 
-export default function timeToHours(time, workingDays, workingHours) {
+export function timeToHours(time, workingDays, workingHours) {
   const timeValues = parseTime(time);
   const weekHours = timeValues.week * workingDays * workingHours;
   const dayHours = timeValues.day * workingHours;
   const hours = timeValues.hour;
   return weekHours + dayHours + hours;
+}
+
+export function hoursToTime(hours, workingDays, workingHours) {
+  let hour = hours;
+  let day = 0;
+  let week = 0;
+
+  if (hour >= workingHours) {
+    day += Math.floor(hour / workingHours);
+    hour %= workingHours;
+  }
+
+  if (day >= workingDays) {
+    week += Math.floor(day / workingDays);
+    day %= workingDays;
+  }
+
+  hour = hour > 0 ? `${hour}h` : 0;
+  day = day > 0 ? `${day}d` : 0;
+  week = week > 0 ? `${week}w` : 0;
+
+  return [week, day, hour].filter(Boolean).join(' ');
 }

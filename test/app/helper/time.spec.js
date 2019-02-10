@@ -1,11 +1,11 @@
 import assert from 'assert';
-import timeToHours from '../../../app/helper/time';
+import { timeToHours, hoursToTime } from '../../../app/helper/time';
 
 const workingDays = 5;
 const workingHours = 8;
 
 describe('Time Helper', () => {
-  it('should convert time input to hours', () => {
+  it('should convert time to hours', () => {
     let hours = timeToHours('2w 6d 12h', workingDays, workingHours);
     let expectedHours = 140;
     assert.strictEqual(hours, expectedHours);
@@ -25,6 +25,32 @@ describe('Time Helper', () => {
     hours = timeToHours('12h', workingDays, workingHours);
     expectedHours = 12;
     assert.strictEqual(hours, expectedHours);
+  });
+
+  it('should convert hours to time', () => {
+    let time = hoursToTime(140, workingDays, workingHours);
+    let expectedTime = '3w 2d 4h';
+    assert.strictEqual(time, expectedTime);
+
+    time = hoursToTime(40, workingDays, workingHours);
+    expectedTime = '1w';
+    assert.strictEqual(time, expectedTime);
+
+    time = hoursToTime(38, workingDays, workingHours);
+    expectedTime = '4d 6h';
+    assert.strictEqual(time, expectedTime);
+
+    time = hoursToTime(12, workingDays, workingHours);
+    expectedTime = '1d 4h';
+    assert.strictEqual(time, expectedTime);
+
+    time = hoursToTime(8, workingDays, workingHours);
+    expectedTime = '1d';
+    assert.strictEqual(time, expectedTime);
+
+    time = hoursToTime(4, workingDays, workingHours);
+    expectedTime = '4h';
+    assert.strictEqual(time, expectedTime);
   });
 
   it('should throw an error for the wrong time format', () => {

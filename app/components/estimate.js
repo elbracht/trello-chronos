@@ -1,4 +1,4 @@
-import timeToHours from '../helper/time';
+import { timeToHours, hoursToTime } from '../helper/time';
 
 const t = TrelloPowerUp.iframe();
 
@@ -23,7 +23,10 @@ window.estimate.addEventListener('submit', (event) => {
 
 t.render(() => t.get('card', 'shared', 'estimateTime')
   .then((estimate) => {
-    window.estimateTime.value = estimate || '';
+    // TODO: Settings for parsing estimate time (true or false)
+    // TODO: Settings for working hours and days
+    const estimateTime = hoursToTime(estimate, 8, 5) || '';
+    window.estimateTime.value = estimateTime;
   })
   .then(() => {
     t.sizeTo('#estimate');
