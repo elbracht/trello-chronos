@@ -29,6 +29,24 @@ describe('Time Helper', () => {
     hours = timeToHours('12h', workingDays, workingHours);
     expectedHours = 12;
     assert.strictEqual(hours, expectedHours);
+
+    hours = timeToHours('0h', workingDays, workingHours);
+    expectedHours = 0;
+    assert.strictEqual(hours, expectedHours);
+  });
+
+  it('should convert time to negative hours', () => {
+    let hours = timeToHours('-2w 6d 12h', workingDays, workingHours);
+    let expectedHours = -140;
+    assert.strictEqual(hours, expectedHours);
+
+    hours = timeToHours('-6d 12h', workingDays, workingHours);
+    expectedHours = -60;
+    assert.strictEqual(hours, expectedHours);
+
+    hours = timeToHours('-12h', workingDays, workingHours);
+    expectedHours = -12;
+    assert.strictEqual(hours, expectedHours);
   });
 
   it('should convert hours to time', () => {
@@ -54,6 +72,24 @@ describe('Time Helper', () => {
 
     time = hoursToTime(4, workingDays, workingHours);
     expectedTime = '4h';
+    assert.strictEqual(time, expectedTime);
+
+    time = hoursToTime(0, workingDays, workingHours);
+    expectedTime = '0h';
+    assert.strictEqual(time, expectedTime);
+  });
+
+  it('should convert negative hours to time', () => {
+    let time = hoursToTime(-140, workingDays, workingHours);
+    let expectedTime = '-3w 2d 4h';
+    assert.strictEqual(time, expectedTime);
+
+    time = hoursToTime(-38, workingDays, workingHours);
+    expectedTime = '-4d 6h';
+    assert.strictEqual(time, expectedTime);
+
+    time = hoursToTime(-4, workingDays, workingHours);
+    expectedTime = '-4h';
     assert.strictEqual(time, expectedTime);
   });
 
