@@ -22,6 +22,14 @@ function cardButtons(t) {
   return [estimateButton, logButton];
 }
 
+function getBadgeColor(estimateTime, logTime, limit1, limit2) {
+  const percentageTime = (100 * logTime) / estimateTime;
+  if (percentageTime <= limit1) return 'green';
+  if (percentageTime > limit1 && percentageTime <= limit2) return 'yellow';
+  if (percentageTime > limit2) return 'red';
+  return '';
+}
+
 function cardBadges(t) {
   return t.getAll().then((data) => {
     const badges = [];
@@ -37,16 +45,10 @@ function cardBadges(t) {
     });
 
     if (estimateTime && logTime) {
-      let remainingTimeColor;
-      const percentageTime = (100 * logTime) / estimateTime;
-      // TODO: Settings for sections (green < 50 < yellow < 80 < red)
-      if (percentageTime <= 50) remainingTimeColor = 'green';
-      else if (percentageTime > 50 && percentageTime <= 80) remainingTimeColor = 'yellow';
-      else if (percentageTime > 80) remainingTimeColor = 'red';
-
       badges.push({
         text: `Remaining: ${hoursToTime(estimateTime - logTime, 5, 8)}`,
-        color: remainingTimeColor,
+        // TODO: Settings for sections (green < 50 < yellow < 80 < red)
+        color: getBadgeColor(estimateTime, logTime, 50, 80),
       });
     }
 
