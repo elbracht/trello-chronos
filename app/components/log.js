@@ -1,6 +1,7 @@
 import { timeToHours } from '../helper/time';
+import localization from '../localization/localization';
 
-const t = TrelloPowerUp.iframe();
+const t = TrelloPowerUp.iframe(localization());
 
 window.log.addEventListener('submit', (event) => {
   event.preventDefault();
@@ -20,4 +21,9 @@ window.log.addEventListener('submit', (event) => {
   }
 });
 
-t.render(() => t.sizeTo('#log'));
+t.render(() => {
+  const contentNode = document.getElementById('estimate');
+  t.localizeNode(contentNode);
+
+  t.sizeTo('#estimate');
+});
