@@ -36,17 +36,17 @@ function cardBadges(t) {
 
     const { estimateTime } = data.card.shared;
     badges.push({
-      text: estimateTime ? `${t.localizeKey('estimate')}: ${hoursToTime(estimateTime, 5, 8)}` : t.localizeKey('no-estimate'),
+      text: estimateTime ? t.localizeKey('estimate', { time: hoursToTime(estimateTime, 5, 8) }) : t.localizeKey('no-estimate'),
     });
 
     const { logTime } = data.card.shared;
     badges.push({
-      text: logTime ? `${t.localizeKey('log')}: ${hoursToTime(logTime, 5, 8)}` : t.localizeKey('no-log'),
+      text: logTime ? t.localizeKey('log', { time: hoursToTime(estimateTime, 5, 8) }) : t.localizeKey('no-log'),
     });
 
     if (estimateTime && logTime) {
       badges.push({
-        text: `${t.localizeKey('remaining')}: ${hoursToTime(estimateTime - logTime, 5, 8)}`,
+        text: t.localizeKey('remaining', { time: hoursToTime(estimateTime - logTime, 5, 8) }),
         // TODO: Settings for sections (green < 50 < yellow < 80 < red)
         color: getBadgeColor(estimateTime, logTime, 50, 80),
       });

@@ -1,9 +1,9 @@
 {
   "estimate-time": "Estimate Time",
-  "estimate": "Estimate",
+  "estimate": "Estimate: {time}",
   "no-estimate": "No Estimate",
   "log-time": "Log Time",
-  "log": "Log",
+  "log": "Log: {time}",
   "no-log": "No Log",
-  "remaining": "Remaining"
+  "remaining": "Remaining: {time}"
 }
