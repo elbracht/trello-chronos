@@ -4,7 +4,7 @@ function cardButtons(t) {
   const estimateButton = {
     text: t.localizeKey('estimte-time'),
     icon: './images/estimateTime.png',
-    callback: () => t.popup({
+    callback: t => t.popup({
       title: t.localizeKey('estimte-time'),
       url: 'estimate.html',
     }),
@@ -13,7 +13,7 @@ function cardButtons(t) {
   const logButton = {
     text: t.localizeKey('log-time'),
     icon: './images/logTime.png',
-    callback: () => t.popup({
+    callback: t => t.popup({
       title: t.localizeKey('log-time'),
       url: 'log.html',
     }),
