@@ -1,10 +1,10 @@
 import { hoursToTime } from '../helper/time';
 
-function cardButtons(t) {
+function cardButtons() {
   const estimateButton = {
     text: 'Estimate Time',
     icon: './images/estimateTime.png',
-    callback: () => t.popup({
+    callback: t => t.popup({
       title: 'Estimate Time',
       url: 'estimate.html',
     }),
@@ -13,7 +13,7 @@ function cardButtons(t) {
   const logButton = {
     text: 'Log Time',
     icon: './images/logTime.png',
-    callback: () => t.popup({
+    callback: t => t.popup({
       title: 'Log Time',
       url: 'log.html',
     }),
@@ -57,6 +57,6 @@ function cardBadges(t) {
 }
 
 TrelloPowerUp.initialize({
-  'card-buttons': t => cardButtons(t),
+  'card-buttons': () => cardButtons(),
   'card-badges': t => cardBadges(t),
 });
