@@ -1,26 +1,33 @@
 function parseTime(time) {
-  const regex = /^(?:^|\s*)(\d+[w|W])?(?:^|\s*)(\d+[d|D])?(?:^|\s*)(\d+[h|H])?(?:^|\s*)$/;
+  const regex = /^(?:^|\s*)(-)?(?:^|\s*)(?:(\d+(?:[.|,]5)?)[w|W])?(?:^|\s*)(?:(\d+(?:[.|,]5)?)[d|D])?(?:^|\s*)(?:(\d+(?:[.|,]5)?)[h|H])?(?:^|\s*)$/;
   const timeValues = time.match(regex);
 
   if (timeValues == null) throw new Error('The input has the wrong format. Try something like \'3d 6h\'.');
 
   return {
-    week: timeValues[1] ? parseInt(timeValues[1].slice(0, -1), 10) : 0,
-    day: timeValues[2] ? parseInt(timeValues[2].slice(0, -1), 10) : 0,
-    hour: timeValues[3] ? parseInt(timeValues[3].slice(0, -1), 10) : 0,
+    isNegative: timeValues[1] === '-',
+    week: timeValues[2] ? parseFloat(timeValues[2]) : 0,
+    day: timeValues[3] ? parseFloat(timeValues[3]) : 0,
+    hour: timeValues[4] ? parseFloat(timeValues[4].replace(',', '.')) : 0,
   };
 }
 
 export function timeToHours(time, workingDays, workingHours) {
-  const timeValues = parseTime(time);
-  const weekHours = timeValues.week * workingDays * workingHours;
-  const dayHours = timeValues.day * workingHours;
-  const hours = timeValues.hour;
-  return weekHours + dayHours + hours;
+  const {
+    isNegative, week, day, hour,
+  } = parseTime(time);
+
+  let hours = 0;
+  hours += week * workingDays * workingHours;
+  hours += day * workingHours;
+  hours += hour;
+
+  return isNegative ? -Math.abs(hours) : Math.abs(hours);
 }
 
 export function hoursToTime(hours, workingDays, workingHours) {
-  let hour = hours;
+  const isNegative = hours < 0;
+  let hour = Math.abs(hours);
   let day = 0;
   let week = 0;
 
@@ -34,9 +41,12 @@ export function hoursToTime(hours, workingDays, workingHours) {
     day %= workingDays;
   }
 
-  hour = hour > 0 ? `${hour}h` : 0;
-  day = day > 0 ? `${day}d` : 0;
-  week = week > 0 ? `${week}w` : 0;
+  const timeValues = [];
+  if (week > 0) timeValues.push(`${week}w`);
+  if (day > 0) timeValues.push(`${day}d`);
+  if (hour > 0) timeValues.push(`${hour}h`);
 
-  return [week, day, hour].filter(Boolean).join(' ');
+  const timeValue = isNegative ? `-${timeValues.join(' ')}` : timeValues.join(' ');
+
+  return timeValue || '0h';
 }
