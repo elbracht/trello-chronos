@@ -1,5 +1,5 @@
 function parseTime(time) {
-  const regex = /^(?:^|\s*)(-)?(?:^|\s*)(?:(\d+)[w|W])?(?:^|\s*)(?:(\d+)[d|D])?(?:^|\s*)(?:(\d+(?:[.|,]5)?)[h|H])?(?:^|\s*)$/;
+  const regex = /^(?:^|\s*)(-)?(?:^|\s*)(?:(\d+(?:[.|,]5)?)[w|W])?(?:^|\s*)(?:(\d+(?:[.|,]5)?)[d|D])?(?:^|\s*)(?:(\d+(?:[.|,]5)?)[h|H])?(?:^|\s*)$/;
   const timeValues = time.match(regex);
 
   if (timeValues == null) throw new Error('The input has the wrong format. Try something like \'3d 6h\'.');
