@@ -1,18 +1,18 @@
 import { hoursToTime } from '../helper/time';
 
 TrelloPowerUp.initialize({
-  'card-buttons': () => [{
-    text: 'Estimate Time',
+  'card-buttons': t => [{
+    text: t.localizeKey('estimte-time'),
     icon: './images/estimateTime.png',
-    callback: t => t.popup({
-      title: 'Estimate Time',
+    callback: () => t.popup({
+      title: t.localizeKey('estimte-time'),
       url: 'estimate.html',
     }),
   }, {
-    text: 'Log Time',
+    text: t.localizeKey('log-time'),
     icon: './images/logTime.png',
-    callback: t => t.popup({
-      title: 'Log Time',
+    callback: () => t.popup({
+      title: t.localizeKey('log-time'),
       url: 'log.html',
     }),
   }],
@@ -22,12 +22,12 @@ TrelloPowerUp.initialize({
 
       const { estimateTime } = data.card.shared;
       badges.push({
-        text: estimateTime ? `Estimate: ${hoursToTime(estimateTime, 5, 8)}` : 'No Estimate',
+        text: estimateTime ? `${t.localizeKey('estimate')}: ${hoursToTime(estimateTime, 5, 8)}` : t.localizeKey('no-estimte'),
       });
 
       const { logTime } = data.card.shared;
       badges.push({
-        text: logTime ? `Log: ${hoursToTime(logTime, 5, 8)}` : 'No Log',
+        text: logTime ? `${t.localizeKey('log')}: ${hoursToTime(logTime, 5, 8)}` : t.localizeKey('no-log'),
       });
 
       if (estimateTime && logTime) {
@@ -39,11 +39,17 @@ TrelloPowerUp.initialize({
         else if (percentageTime > 80) remainingTimeColor = 'red';
 
         badges.push({
-          text: `Remaining: ${hoursToTime(estimateTime - logTime, 5, 8)}`,
+          text: `${t.localizeKey('remaining')}: ${hoursToTime(estimateTime - logTime, 5, 8)}`,
           color: remainingTimeColor,
         });
       }
 
       return badges;
     }),
+}, {
+  localization: {
+    defaultLocale: 'en',
+    supportedLocales: ['en', 'de'],
+    resourceUrl: './strings/{locale}.json',
+  },
 });
