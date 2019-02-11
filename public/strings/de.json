@@ -1,9 +1,9 @@
 {
-  "estimate-time": "Zeit schätzen",
+  "estimate-time": "Geschätzte Zeit",
   "estimate": "Geschätzt",
   "no-estimate": "Keine Schätzung",
-  "log-time": "Zeit erfassen",
-  "log": "Erfasst",
-  "no-log": "Keine Erfassung",
+  "log-time": "Aufgewendete Zeit",
+  "log": "Aufgewendet",
+  "no-log": "Kein Aufwand",
   "remaining": "Verbleibend"
 }
