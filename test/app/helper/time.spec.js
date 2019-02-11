@@ -30,6 +30,18 @@ describe('Time Helper', () => {
     expectedHours = 12;
     assert.strictEqual(hours, expectedHours);
 
+    hours = timeToHours('12h', workingDays, workingHours);
+    expectedHours = 12;
+    assert.strictEqual(hours, expectedHours);
+
+    hours = timeToHours('0.5h', workingDays, workingHours);
+    expectedHours = 0.5;
+    assert.strictEqual(hours, expectedHours);
+
+    hours = timeToHours('0,5h', workingDays, workingHours);
+    expectedHours = 0.5;
+    assert.strictEqual(hours, expectedHours);
+
     hours = timeToHours('0h', workingDays, workingHours);
     expectedHours = 0;
     assert.strictEqual(hours, expectedHours);
@@ -46,6 +58,14 @@ describe('Time Helper', () => {
 
     hours = timeToHours('-12h', workingDays, workingHours);
     expectedHours = -12;
+    assert.strictEqual(hours, expectedHours);
+
+    hours = timeToHours('-4.5h', workingDays, workingHours);
+    expectedHours = -4.5;
+    assert.strictEqual(hours, expectedHours);
+
+    hours = timeToHours('-4,5h', workingDays, workingHours);
+    expectedHours = -4.5;
     assert.strictEqual(hours, expectedHours);
   });
 
@@ -74,6 +94,10 @@ describe('Time Helper', () => {
     expectedTime = '4h';
     assert.strictEqual(time, expectedTime);
 
+    time = hoursToTime(0.5, workingDays, workingHours);
+    expectedTime = '0.5h';
+    assert.strictEqual(time, expectedTime);
+
     time = hoursToTime(0, workingDays, workingHours);
     expectedTime = '0h';
     assert.strictEqual(time, expectedTime);
@@ -90,6 +114,10 @@ describe('Time Helper', () => {
 
     time = hoursToTime(-4, workingDays, workingHours);
     expectedTime = '-4h';
+    assert.strictEqual(time, expectedTime);
+
+    time = hoursToTime(-4.5, workingDays, workingHours);
+    expectedTime = '-4.5h';
     assert.strictEqual(time, expectedTime);
   });
 

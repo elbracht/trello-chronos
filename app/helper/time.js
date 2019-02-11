@@ -1,14 +1,14 @@
 function parseTime(time) {
-  const regex = /^(?:^|\s*)(-)?(?:^|\s*)(?:(\d+)[w|W])?(?:^|\s*)(?:(\d+)[d|D])?(?:^|\s*)(?:(\d+)[h|H])?(?:^|\s*)$/;
+  const regex = /^(?:^|\s*)(-)?(?:^|\s*)(?:(\d+)[w|W])?(?:^|\s*)(?:(\d+)[d|D])?(?:^|\s*)(?:(\d+(?:[.|,]5)?)[h|H])?(?:^|\s*)$/;
   const timeValues = time.match(regex);
 
   if (timeValues == null) throw new Error('The input has the wrong format. Try something like \'3d 6h\'.');
 
   return {
     isNegative: timeValues[1] === '-',
-    week: timeValues[2] ? parseInt(timeValues[2], 10) : 0,
-    day: timeValues[3] ? parseInt(timeValues[3], 10) : 0,
-    hour: timeValues[4] ? parseInt(timeValues[4], 10) : 0,
+    week: timeValues[2] ? parseFloat(timeValues[2]) : 0,
+    day: timeValues[3] ? parseFloat(timeValues[3]) : 0,
+    hour: timeValues[4] ? parseFloat(timeValues[4].replace(',', '.')) : 0,
   };
 }
 
