@@ -1,49 +1,62 @@
 import { hoursToTime } from '../helper/time';
 
-TrelloPowerUp.initialize({
-  'card-buttons': () => [{
+function cardButtons(t) {
+  const estimateButton = {
     text: 'Estimate Time',
     icon: './images/estimateTime.png',
-    callback: t => t.popup({
+    callback: () => t.popup({
       title: 'Estimate Time',
       url: 'estimate.html',
     }),
-  }, {
+  };
+
+  const logButton = {
     text: 'Log Time',
     icon: './images/logTime.png',
-    callback: t => t.popup({
+    callback: () => t.popup({
       title: 'Log Time',
       url: 'log.html',
     }),
-  }],
-  'card-badges': t => t.getAll()
-    .then((data) => {
-      const badges = [];
+  };
 
-      const { estimateTime } = data.card.shared;
+  return [estimateButton, logButton];
+}
+
+function getBadgeColor(estimateTime, logTime, limit1, limit2) {
+  const percentageTime = (100 * logTime) / estimateTime;
+  if (percentageTime <= limit1) return 'green';
+  if (percentageTime > limit1 && percentageTime <= limit2) return 'yellow';
+  if (percentageTime > limit2) return 'red';
+  return '';
+}
+
+function cardBadges(t) {
+  return t.getAll().then((data) => {
+    const badges = [];
+
+    const { estimateTime } = data.card.shared;
+    badges.push({
+      text: estimateTime ? `Estimate: ${hoursToTime(estimateTime, 5, 8)}` : 'No Estimate',
+    });
+
+    const { logTime } = data.card.shared;
+    badges.push({
+      text: logTime ? `Log: ${hoursToTime(logTime, 5, 8)}` : 'No Log',
+    });
+
+    if (estimateTime && logTime) {
       badges.push({
-        text: estimateTime ? `Estimate: ${hoursToTime(estimateTime, 5, 8)}` : 'No Estimate',
-      });
-
-      const { logTime } = data.card.shared;
-      badges.push({
-        text: logTime ? `Log: ${hoursToTime(logTime, 5, 8)}` : 'No Log',
-      });
-
-      if (estimateTime && logTime) {
-        let remainingTimeColor;
-        const percentageTime = (100 * logTime) / estimateTime;
+        text: `Remaining: ${hoursToTime(estimateTime - logTime, 5, 8)}`,
         // TODO: Settings for sections (green < 50 < yellow < 80 < red)
-        if (percentageTime <= 50) remainingTimeColor = 'green';
-        else if (percentageTime > 50 && percentageTime <= 80) remainingTimeColor = 'yellow';
-        else if (percentageTime > 80) remainingTimeColor = 'red';
+        color: getBadgeColor(estimateTime, logTime, 50, 80),
+      });
+    }
 
-        badges.push({
-          text: `Remaining: ${hoursToTime(estimateTime - logTime, 5, 8)}`,
-          color: remainingTimeColor,
-        });
-      }
+    return badges;
+  });
+}
 
-      return badges;
-    }),
+TrelloPowerUp.initialize({
+  'card-buttons': t => cardButtons(t),
+  'card-badges': t => cardBadges(t),
 });
