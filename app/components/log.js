@@ -22,8 +22,8 @@ window.log.addEventListener('submit', (event) => {
 });
 
 t.render(() => {
-  const contentNode = document.getElementById('estimate');
+  const contentNode = document.getElementById('log');
   t.localizeNode(contentNode);
 
-  t.sizeTo('#estimate');
+  t.sizeTo('#log');
 });
