@@ -1,6 +1,7 @@
 import { timeToHours, hoursToTime } from '../helper/time';
+import localization from '../localization/localization';
 
-const t = TrelloPowerUp.iframe();
+const t = TrelloPowerUp.iframe(localization());
 
 window.estimate.addEventListener('submit', (event) => {
   event.preventDefault();
@@ -27,5 +28,8 @@ t.render(() => t.get('card', 'shared', 'estimateTime')
     window.estimateTime.value = estimateTime;
   })
   .then(() => {
+    const contentNode = document.getElementById('estimate');
+    t.localizeNode(contentNode);
+
     t.sizeTo('#estimate');
   }));

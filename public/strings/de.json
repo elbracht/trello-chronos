@@ -2,8 +2,11 @@
   "estimate-time": "Geschätzte Zeit",
   "estimate": "Geschätzt: {time}",
   "no-estimate": "Keine Schätzung",
+  "estimate-time-title": "Geschätzte Zeit für diese Karte",
+  "estimate-time-placeholder": "z.B. 1w 2d 4h, 4.5h",
   "log-time": "Aufgewendete Zeit",
   "log": "Aufgewendet: {time}",
   "no-log": "Kein Aufwand",
-  "remaining": "Verbleibend: {time}"
+  "remaining": "Verbleibend: {time}",
+  "save": "Speichern"
 }

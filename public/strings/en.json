@@ -2,8 +2,11 @@
   "estimate-time": "Estimate Time",
   "estimate": "Estimate: {time}",
   "no-estimate": "No Estimate",
+  "estimate-time-title": "Estimate the time for this card",
+  "estimate-time-placeholder": "e.g. 1w 2d 4h, 4.5h",
   "log-time": "Log Time",
   "log": "Log: {time}",
   "no-log": "No Log",
-  "remaining": "Remaining: {time}"
+  "remaining": "Remaining: {time}",
+  "save": "Save"
 }
