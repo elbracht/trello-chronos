@@ -1,4 +1,5 @@
 import { hoursToTime } from '../helper/time';
+import localization from '../localization/localization';
 
 function cardButtons(t) {
   const estimateButton = {
@@ -59,10 +60,4 @@ function cardBadges(t) {
 TrelloPowerUp.initialize({
   'card-buttons': t => cardButtons(t),
   'card-badges': t => cardBadges(t),
-}, {
-  localization: {
-    defaultLocale: 'en',
-    supportedLocales: ['en', 'de'],
-    resourceUrl: './strings/{locale}.json',
-  },
-});
+}, localization());
