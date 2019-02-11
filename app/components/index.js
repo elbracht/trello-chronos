@@ -2,10 +2,10 @@ import { hoursToTime } from '../helper/time';
 
 function cardButtons(t) {
   const estimateButton = {
-    text: t.localizeKey('estimte-time'),
+    text: t.localizeKey('estimate-time'),
     icon: './images/estimateTime.png',
     callback: t => t.popup({
-      title: t.localizeKey('estimte-time'),
+      title: t.localizeKey('estimate-time'),
       url: 'estimate.html',
     }),
   };
@@ -36,7 +36,7 @@ function cardBadges(t) {
 
     const { estimateTime } = data.card.shared;
     badges.push({
-      text: estimateTime ? `${t.localizeKey('estimate')}: ${hoursToTime(estimateTime, 5, 8)}` : t.localizeKey('no-estimte'),
+      text: estimateTime ? `${t.localizeKey('estimate')}: ${hoursToTime(estimateTime, 5, 8)}` : t.localizeKey('no-estimate'),
     });
 
     const { logTime } = data.card.shared;
