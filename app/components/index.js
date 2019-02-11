@@ -3,19 +3,19 @@ import localization from '../localization/localization';
 
 function cardButtons(t) {
   const estimateButton = {
-    text: t.localizeKey('estimate-time'),
+    text: t.localizeKey('estimate-title'),
     icon: './images/estimateTime.png',
     callback: t => t.popup({
-      title: t.localizeKey('estimate-time'),
+      title: t.localizeKey('estimate-title'),
       url: 'estimate.html',
     }),
   };
 
   const logButton = {
-    text: t.localizeKey('log-time'),
+    text: t.localizeKey('log-title'),
     icon: './images/logTime.png',
     callback: t => t.popup({
-      title: t.localizeKey('log-time'),
+      title: t.localizeKey('log-title'),
       url: 'log.html',
     }),
   };
@@ -37,17 +37,17 @@ function cardBadges(t) {
 
     const { estimateTime } = data.card.shared;
     badges.push({
-      text: estimateTime ? t.localizeKey('estimate', { time: hoursToTime(estimateTime, 5, 8) }) : t.localizeKey('no-estimate'),
+      text: estimateTime ? t.localizeKey('estimate-with-time', { time: hoursToTime(estimateTime, 5, 8) }) : t.localizeKey('estimate-not-available'),
     });
 
     const { logTime } = data.card.shared;
     badges.push({
-      text: logTime ? t.localizeKey('log', { time: hoursToTime(estimateTime, 5, 8) }) : t.localizeKey('no-log'),
+      text: logTime ? t.localizeKey('log-with-time', { time: hoursToTime(estimateTime, 5, 8) }) : t.localizeKey('log-not-available'),
     });
 
     if (estimateTime && logTime) {
       badges.push({
-        text: t.localizeKey('remaining', { time: hoursToTime(estimateTime - logTime, 5, 8) }),
+        text: t.localizeKey('remaining-with-time', { time: hoursToTime(estimateTime - logTime, 5, 8) }),
         // TODO: Settings for sections (green < 50 < yellow < 80 < red)
         color: getBadgeColor(estimateTime, logTime, 50, 80),
       });

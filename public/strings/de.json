@@ -1,12 +1,14 @@
 {
-  "estimate-time": "Geschätzte Zeit",
-  "estimate": "Geschätzt: {time}",
-  "no-estimate": "Keine Schätzung",
-  "estimate-time-title": "Geschätzte Zeit für diese Karte",
-  "estimate-time-placeholder": "z.B. 1w 2d 4h, 4.5h",
-  "log-time": "Aufgewendete Zeit",
-  "log": "Aufgewendet: {time}",
-  "no-log": "Kein Aufwand",
-  "remaining": "Verbleibend: {time}",
+  "estimate-title": "Geschätzte Zeit",
+  "estimate-with-time": "Geschätzt: {time}",
+  "estimate-not-available": "Keine Schätzung",
+  "estimate-label-title": "Geschätzte Zeit für diese Karte",
+  "estimate-label-placeholder": "z.B. 1w 2d 4h, 4.5h",
+  "log-title": "Aufgewendete Zeit",
+  "log-with-time": "Aufgewendet: {time}",
+  "log-not-available": "Kein Aufwand",
+  "log-label-title": "Aufgewendete Zeit für diese Karte",
+  "log-label-placeholder": "z.B. 1w 2d 4h, -6h, 4.5h",
+  "remaining-with-time": "Verbleibend: {time}",
   "save": "Speichern"
 }

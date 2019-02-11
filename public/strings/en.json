@@ -1,12 +1,14 @@
 {
-  "estimate-time": "Estimate Time",
-  "estimate": "Estimate: {time}",
-  "no-estimate": "No Estimate",
-  "estimate-time-title": "Estimate the time for this card",
-  "estimate-time-placeholder": "e.g. 1w 2d 4h, 4.5h",
-  "log-time": "Log Time",
-  "log": "Log: {time}",
-  "no-log": "No Log",
-  "remaining": "Remaining: {time}",
+  "estimate-title": "Estimate Time",
+  "estimate-with-time": "Estimate: {time}",
+  "estimate-not-available": "No Estimate",
+  "estimate-label-title": "Estimate the time for this card",
+  "estimate-label-placeholder": "e.g. 1w 2d 4h, 4.5h",
+  "log-title": "Log Time",
+  "log-with-time": "Log: {time}",
+  "log-not-available": "No Log",
+  "log-label-title": "Log the time spent on this card",
+  "log-label-placeholder": "e.g. 1w 2d 4h, -6h, 4.5h",
+  "remaining-with-time": "Remaining: {time}",
   "save": "Save"
 }
