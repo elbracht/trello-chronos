@@ -28,8 +28,11 @@ t.render(() => t.get('card', 'shared', 'estimateTime')
     window.estimateTime.value = estimateTime;
   })
   .then(() => {
-    const contentNode = document.getElementById('estimate');
-    t.localizeNode(contentNode);
+    const form = document.getElementById('estimate');
+    t.localizeNode(form);
+
+    const label = document.getElementById('estimateTime');
+    label.placeholder = t.localizeKey('estimate-label-placeholder');
 
     t.sizeTo('#estimate');
   }));

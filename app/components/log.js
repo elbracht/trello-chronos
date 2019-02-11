@@ -22,8 +22,11 @@ window.log.addEventListener('submit', (event) => {
 });
 
 t.render(() => {
-  const contentNode = document.getElementById('log');
-  t.localizeNode(contentNode);
+  const form = document.getElementById('log');
+  t.localizeNode(form);
+
+  const label = document.getElementById('logTime');
+  label.placeholder = t.localizeKey('log-label-placeholder');
 
   t.sizeTo('#log');
 });
