@@ -1,0 +1,15 @@
+{
+  "estimate-title": "Geschätzte Zeit",
+  "estimate-with-time": "Geschätzt: {time}",
+  "estimate-not-available": "Keine Schätzung",
+  "estimate-label-title": "Geschätzte Zeit für diese Karte",
+  "estimate-label-placeholder": "z.B. 1w 2d 4h, 4.5h",
+  "log-title": "Aufgewendete Zeit",
+  "log-with-time": "Aufgewendet: {time}",
+  "log-not-available": "Kein Aufwand",
+  "log-label-title": "Aufgewendete Zeit für diese Karte",
+  "log-label-placeholder": "z.B. 1w 2d 4h, -6h, 4.5h",
+  "remaining-with-time": "Verbleibend: {time}",
+  "save": "Speichern",
+  "error-input-format": "Die Eingabe hat das falsche Format. Versuchen Sie eine Eingabe wie '3d 6h'."
+}

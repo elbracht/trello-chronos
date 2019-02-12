@@ -1,6 +1,7 @@
 import { timeToHours, hoursToTime } from '../helper/time';
+import localization from '../localization/localization';
 
-const t = TrelloPowerUp.iframe();
+const t = TrelloPowerUp.iframe(localization());
 
 window.estimate.addEventListener('submit', (event) => {
   event.preventDefault();
@@ -15,7 +16,7 @@ window.estimate.addEventListener('submit', (event) => {
   } catch (err) {
     window.estimateTime.classList.add('is-error');
     window.estimateTimeError.classList.add('is-error');
-    window.estimateTimeError.innerHTML = err.message;
+    window.estimateTimeError.innerHTML = t.localizeKey('error-input-format');
     return false;
   }
 });
@@ -27,5 +28,11 @@ t.render(() => t.get('card', 'shared', 'estimateTime')
     window.estimateTime.value = estimateTime;
   })
   .then(() => {
+    const form = document.getElementById('estimate');
+    t.localizeNode(form);
+
+    const label = document.getElementById('estimateTime');
+    label.placeholder = t.localizeKey('estimate-label-placeholder');
+
     t.sizeTo('#estimate');
   }));

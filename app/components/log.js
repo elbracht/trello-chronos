@@ -1,6 +1,7 @@
 import { timeToHours } from '../helper/time';
+import localization from '../localization/localization';
 
-const t = TrelloPowerUp.iframe();
+const t = TrelloPowerUp.iframe(localization());
 
 window.log.addEventListener('submit', (event) => {
   event.preventDefault();
@@ -15,9 +16,17 @@ window.log.addEventListener('submit', (event) => {
   } catch (err) {
     window.logTime.classList.add('is-error');
     window.logTimeError.classList.add('is-error');
-    window.logTimeError.innerHTML = err.message;
+    window.logTimeError.innerHTML = t.localizeKey('error-input-format');
     return false;
   }
 });
 
-t.render(() => t.sizeTo('#log'));
+t.render(() => {
+  const form = document.getElementById('log');
+  t.localizeNode(form);
+
+  const label = document.getElementById('logTime');
+  label.placeholder = t.localizeKey('log-label-placeholder');
+
+  t.sizeTo('#log');
+});

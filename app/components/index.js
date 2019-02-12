@@ -1,20 +1,21 @@
 import { hoursToTime } from '../helper/time';
+import localization from '../localization/localization';
 
-function cardButtons() {
+function cardButtons(t) {
   const estimateButton = {
-    text: 'Estimate Time',
+    text: t.localizeKey('estimate-title'),
     icon: './images/estimateTime.png',
     callback: t => t.popup({
-      title: 'Estimate Time',
+      title: t.localizeKey('estimate-title'),
       url: 'estimate.html',
     }),
   };
 
   const logButton = {
-    text: 'Log Time',
+    text: t.localizeKey('log-title'),
     icon: './images/logTime.png',
     callback: t => t.popup({
-      title: 'Log Time',
+      title: t.localizeKey('log-title'),
       url: 'log.html',
     }),
   };
@@ -36,17 +37,17 @@ function cardBadges(t) {
 
     const { estimateTime } = data.card.shared;
     badges.push({
-      text: estimateTime ? `Estimate: ${hoursToTime(estimateTime, 5, 8)}` : 'No Estimate',
+      text: estimateTime ? t.localizeKey('estimate-with-time', { time: hoursToTime(estimateTime, 5, 8) }) : t.localizeKey('estimate-not-available'),
     });
 
     const { logTime } = data.card.shared;
     badges.push({
-      text: logTime ? `Log: ${hoursToTime(logTime, 5, 8)}` : 'No Log',
+      text: logTime ? t.localizeKey('log-with-time', { time: hoursToTime(estimateTime, 5, 8) }) : t.localizeKey('log-not-available'),
     });
 
     if (estimateTime && logTime) {
       badges.push({
-        text: `Remaining: ${hoursToTime(estimateTime - logTime, 5, 8)}`,
+        text: t.localizeKey('remaining-with-time', { time: hoursToTime(estimateTime - logTime, 5, 8) }),
         // TODO: Settings for sections (green < 50 < yellow < 80 < red)
         color: getBadgeColor(estimateTime, logTime, 50, 80),
       });
@@ -57,6 +58,6 @@ function cardBadges(t) {
 }
 
 TrelloPowerUp.initialize({
-  'card-buttons': () => cardButtons(),
+  'card-buttons': t => cardButtons(t),
   'card-badges': t => cardBadges(t),
-});
+}, localization());
