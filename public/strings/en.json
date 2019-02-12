@@ -10,5 +10,6 @@
   "log-label-title": "Log the time spent on this card",
   "log-label-placeholder": "e.g. 1w 2d 4h, -6h, 4.5h",
   "remaining-with-time": "Remaining: {time}",
-  "save": "Save"
+  "save": "Save",
+  "error-input-format": "The input has the wrong format. Try something like '3d 6h'."
 }

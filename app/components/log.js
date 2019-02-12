@@ -16,7 +16,7 @@ window.log.addEventListener('submit', (event) => {
   } catch (err) {
     window.logTime.classList.add('is-error');
     window.logTimeError.classList.add('is-error');
-    window.logTimeError.innerHTML = err.message;
+    window.logTimeError.innerHTML = t.localizeKey('error-input-format');
     return false;
   }
 });

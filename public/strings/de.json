@@ -10,5 +10,6 @@
   "log-label-title": "Aufgewendete Zeit für diese Karte",
   "log-label-placeholder": "z.B. 1w 2d 4h, -6h, 4.5h",
   "remaining-with-time": "Verbleibend: {time}",
-  "save": "Speichern"
+  "save": "Speichern",
+  "error-input-format": "Die Eingabe hat das falsche Format. Versuchen Sie eine Eingabe wie '3d 6h'."
 }
