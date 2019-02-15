@@ -57,7 +57,15 @@ function cardBadges(t) {
   });
 }
 
+function showSettings(t) {
+  return t.popup({
+    title: t.localizeKey('settings-title'),
+    url: 'settings.html',
+  });
+}
+
 TrelloPowerUp.initialize({
   'card-buttons': t => cardButtons(t),
   'card-badges': t => cardBadges(t),
+  'show-settings': t => showSettings(t),
 }, localization());
