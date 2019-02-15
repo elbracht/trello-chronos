@@ -42,7 +42,7 @@ function cardBadges(t) {
 
     const { logTime } = data.card.shared;
     badges.push({
-      text: logTime ? t.localizeKey('log-with-time', { time: hoursToTime(estimateTime, 5, 8) }) : t.localizeKey('log-not-available'),
+      text: logTime ? t.localizeKey('log-with-time', { time: hoursToTime(logTime, 5, 8) }) : t.localizeKey('log-not-available'),
     });
 
     if (estimateTime && logTime) {
