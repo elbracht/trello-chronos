@@ -1,8 +1,10 @@
+import InputFormatError from './error';
+
 function parseTime(time) {
   const regex = /^(?:^|\s*)(-)?(?:^|\s*)(?:(\d+(?:[.|,]5)?)[w|W])?(?:^|\s*)(?:(\d+(?:[.|,]5)?)[d|D])?(?:^|\s*)(?:(\d+(?:[.|,]5)?)[h|H])?(?:^|\s*)$/;
   const timeValues = time.match(regex);
 
-  if (timeValues == null) throw new Error();
+  if (timeValues == null) throw new InputFormatError();
 
   return {
     isNegative: timeValues[1] === '-',

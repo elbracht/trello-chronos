@@ -1,4 +1,5 @@
 import { timeToHours } from '../helper/time';
+import InputFormatError from '../helper/error';
 import localization from '../localization/localization';
 
 const t = TrelloPowerUp.iframe(localization());
@@ -16,7 +17,7 @@ window.log.addEventListener('submit', (event) => {
   } catch (err) {
     window.logTime.classList.add('is-error');
     window.logTimeError.classList.add('is-error');
-    window.logTimeError.innerHTML = t.localizeKey('error-input-format');
+    window.logTimeError.innerHTML = err instanceof InputFormatError ? t.localizeKey('error-input-format') : err.message;
     return false;
   }
 });
