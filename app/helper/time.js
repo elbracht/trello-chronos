@@ -14,7 +14,9 @@ function parseTime(time) {
   };
 }
 
-export function timeToHours(time, workingDays, workingHours) {
+export function timeToHours(time, workingDays = 5, workingHours = 8) {
+  if (time == null) return null;
+
   const {
     isNegative, week, day, hour,
   } = parseTime(time);
@@ -27,7 +29,9 @@ export function timeToHours(time, workingDays, workingHours) {
   return isNegative ? -Math.abs(hours) : Math.abs(hours);
 }
 
-export function hoursToTime(hours, workingDays, workingHours) {
+export function hoursToTime(hours, workingDays = 5, workingHours = 8) {
+  if (hours == null) return null;
+
   const isNegative = hours < 0;
   let hour = Math.abs(hours);
   let day = 0;

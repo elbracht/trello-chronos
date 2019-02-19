@@ -35,21 +35,27 @@ function cardBadges(t) {
   return t.getAll().then((data) => {
     const badges = [];
 
-    const { estimateTime } = data.card.shared;
     badges.push({
-      text: estimateTime ? t.localizeKey('estimate-with-time', { time: hoursToTime(estimateTime, 5, 8) }) : t.localizeKey('estimate-not-available'),
+      text: data && data.card && data.card.shared && data.card.shared.estimateTime
+        ? t.localizeKey('estimate-with-time', { time: hoursToTime(data.card.shared.estimateTime, 5, 8) })
+        : t.localizeKey('estimate-not-available'),
     });
 
-    const { logTime } = data.card.shared;
     badges.push({
-      text: logTime ? t.localizeKey('log-with-time', { time: hoursToTime(logTime, 5, 8) }) : t.localizeKey('log-not-available'),
+      text: data && data.card && data.card.shared && data.card.shared.logTime
+        ? t.localizeKey('log-with-time', { time: hoursToTime(data.card.shared.logTime, 5, 8) })
+        : t.localizeKey('log-not-available'),
     });
 
-    if (estimateTime && logTime) {
+    if (data
+      && data.card
+      && data.card.shared
+      && data.card.shared.estimateTime
+      && data.card.shared.logTime) {
       badges.push({
-        text: t.localizeKey('remaining-with-time', { time: hoursToTime(estimateTime - logTime, 5, 8) }),
+        text: t.localizeKey('remaining-with-time', { time: hoursToTime(data.card.shared.estimateTime - data.card.shared.logTime, 5, 8) }),
         // TODO: Settings for sections (green < 50 < yellow < 80 < red)
-        color: getBadgeColor(estimateTime, logTime, 50, 80),
+        color: getBadgeColor(data.card.shared.estimateTime, data.card.shared.logTime, 50, 80),
       });
     }
 
