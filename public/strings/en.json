@@ -10,6 +10,9 @@
   "log-label-title": "Log the time spent on this card",
   "log-label-placeholder": "e.g. 1w 2d 4h, -6h, 4.5h",
   "remaining-with-time": "Remaining: {time}",
+  "settings-title": "Chronos Settings",
+  "settings-working-days-title": "How many days do you work a week?",
+  "settings-working-hours-title": "How many hours do you work a day?",
   "save": "Save",
   "error-input-format": "The input has the wrong format. Try something like '3d 6h'."
 }

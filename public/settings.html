@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="https://trello.com/power-ups/power-up.css">
+    <link rel="stylesheet" href="./stylesheets/main.css">
+    <script src="https://trello.com/power-ups/power-up.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Trello Chronos</title>
+  </head>
+  <body>
+    <noscript>
+      You need to enable JavaScript to run this app.
+    </noscript>
+    <form id="settings">
+      <label for="workingDays" data-i18n-id="settings-working-days-title">How many days do you work a week?</label>
+      <input id="workingDays" type="text" placeholder="5" autofocus />
+      <label for="workingHours" data-i18n-id="settings-working-hours-title">How many hours do you work a day?</label>
+      <input id="workingHours" type="text" placeholder="8" autofocus />
+      <hr />
+      <button type="submit" class="mod-primary" data-i18n-id="save">Save</button>
+    </form>
+    <script type="text/javascript" src="./scripts/settings.bundle.js"></script>
+  </body>
+</html>
