@@ -5,7 +5,7 @@ function cardButtons(t) {
   const estimateButton = {
     text: t.localizeKey('estimate-title'),
     icon: './images/estimateTime.png',
-    callback: t => t.popup({
+    callback: (t) => t.popup({
       title: t.localizeKey('estimate-title'),
       url: 'estimate.html',
     }),
@@ -14,7 +14,7 @@ function cardButtons(t) {
   const logButton = {
     text: t.localizeKey('log-title'),
     icon: './images/logTime.png',
-    callback: t => t.popup({
+    callback: (t) => t.popup({
       title: t.localizeKey('log-title'),
       url: 'log.html',
     }),
@@ -64,6 +64,6 @@ function cardBadges(t) {
 }
 
 TrelloPowerUp.initialize({
-  'card-buttons': t => cardButtons(t),
-  'card-badges': t => cardBadges(t),
+  'card-buttons': (t) => cardButtons(t),
+  'card-badges': (t) => cardBadges(t),
 }, localization());

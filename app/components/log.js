@@ -12,7 +12,7 @@ window.log.addEventListener('submit', (event) => {
     const logHours = timeToHours(window.logTime.value, 5, 8);
 
     return t.get('card', 'shared', 'logTime', 0)
-      .then(logTime => t.set('card', 'shared', 'logTime', logTime + logHours))
+      .then((logTime) => t.set('card', 'shared', 'logTime', logTime + logHours))
       .then(() => t.closePopup());
   } catch (err) {
     window.logTime.classList.add('is-error');
